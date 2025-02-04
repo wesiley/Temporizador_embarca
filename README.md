@@ -1,4 +1,4 @@
-# Projeto Temporizador periodico (atuação do semaforo) 🚀
+# Projeto Temporizador periodico (atuação do semaforo) 
 
 Este projeto faz com que ascenda cada LED(vermeljo,verde e amarelo) periodicamente a cada 3 segundos por meio de uma interrupção.
 ## Hardware 🛠️
@@ -17,7 +17,7 @@ Este projeto faz com que ascenda cada LED(vermeljo,verde e amarelo) periodicamen
 
 ### O código está dividido em vários arquivos para melhor organização:
 
-- **`Temoprizador_periodico.C`**: Código com a função de loop principal: gera o código que faz com que alterne os leds periodicamente em um tempo definido.
+- **`temporizador_embarca.c`**: Código com a função de loop principal: gera o código que faz com que alterne os leds periodicamente em um tempo definido.
 - **`CMakeLists.txt`:** Define a estrutura do projeto para o CMake.
 - **`diagram.json`:** projeta a simulação do semaforo.
 - **`wokwi.toml`:** configuração para sicronizar o código a simulação.
@@ -39,12 +39,12 @@ Este projeto faz com que ascenda cada LED(vermeljo,verde e amarelo) periodicamen
     while (true) {
 
         printf("Semáforo em funcionamento...\n");
-        sleep_ms(1000); // Espera 1 segundo
+        sleep_ms(1000);
     }
   ```
-O loop while (true) garante execução contínua. sleep_ms(1000) introdz um atraso de 1 segundos para indicar a alteração de sinal dos leds.
+O loop while (true) garante execução contínua, o printf mantém o programa enviando mensagem para o usuário pelo terminal e o sleep_ms(1000) introdz um atraso de 1 segundos para indicar a alteração de sinal dos leds.
 
-## Funcionamento da interrupção.
+## Funcionamento do Temporizador.
 ```
 void update_traffic_light() {
     switch (current_state) {
@@ -69,13 +69,13 @@ void update_traffic_light() {
     }
 }
 
-// Callback do temporizador
+
 bool repeating_timer_callback(struct repeating_timer *t) {
     update_traffic_light();
-    return true; // Continua o temporizador
+    return true; 
 }
   ```
-A função void update_traffic_light() tem como função usar como parâmetro o "current_state" e implementar condições para o controle de liga/desliga dos Leds. bool repeating_timer_callback() é uma interrupção que tem como função imprimir o contador e chamar a função update_traffic_light() para ligar e desligar os leds do semaforo em um tempo definido e sicronizado com o contador.
+A função void update_traffic_light() tem como função usar como parâmetro o "current_state" e implementar condições para o controle de liga/desliga dos Leds. bool repeating_timer_callback() é um Temporizador que tem como função imprimir o contador e chamar a função update_traffic_light() para ligar e desligar os leds do semaforo em um tempo definido e sicronizado com o contador.
 
 ## Diagrama de Conexões 💡:
 
