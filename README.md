@@ -30,7 +30,7 @@ Este projeto faz com que ascenda cada LED(vermeljo,verde e amarelo) periodicamen
 ## Como Compilar e Executar ⚙️
 
 1. **Instale o SDK do Raspberry Pi Pico:** Siga as instruções no site oficial do Raspberry Pi.
-2. **Clone este repositório:** `Temporizador_embarca`
+2. **Clone este repositório:** `https://github.com/wesiley/Temporizador_embarca`
 3. **Navegue até o diretório do projeto:** `cd Temporizador_embarca`
 4. **Compile o projeto:** `cmake -B build && cmake --build build`
 5. **Copie para o Pico:** Copie o conteúdo da pasta `build` (gerada após a compilação) para o Raspberry Pi Pico. O programa iniciará automaticamente.
